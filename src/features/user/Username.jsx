@@ -1,7 +1,7 @@
 function Username() {
     // const username = useLoaderData();
     return (
-        <div className="text-sm font-semibold">{Shrey}</div>
+        <div className="text-sm font-semibold hidden md:block">Shrey</div>
     );
 }   
 
