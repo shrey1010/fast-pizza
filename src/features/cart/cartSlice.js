@@ -57,3 +57,5 @@ import { createSlice } from "@reduxjs/toolkit"
 
   export const getTotalCartQuantity = state => state.cart.cart.reduce((acc, item) => acc + item.quantity, 0)
   export const getTotalCartPrice = state => state.cart.cart.reduce((acc, item) => acc + item.totalPrice, 0) 
+
+  export const getCart = state => state.cart.cart
