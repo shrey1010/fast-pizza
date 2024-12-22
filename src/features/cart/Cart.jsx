@@ -5,30 +5,31 @@ import CartItem from './CartItem';
 import { useDispatch, useSelector } from 'react-redux';
 import { clearCart, getCart } from './cartSlice';
 import { getUsername } from '../user/userSlice';
+import EmptyCart from './EmptyCart';
 
-const fakeCart = [
-  {
-    pizzaId: 12,
-    name: 'Mediterranean',
-    quantity: 2,
-    unitPrice: 16,
-    totalPrice: 32,
-  },
-  {
-    pizzaId: 6,
-    name: 'Vegetale',
-    quantity: 1,
-    unitPrice: 13,
-    totalPrice: 13,
-  },
-  {
-    pizzaId: 11,
-    name: 'Spinach and Mushroom',
-    quantity: 1,
-    unitPrice: 15,
-    totalPrice: 15,
-  },
-];
+// const fakeCart = [
+//   {
+//     pizzaId: 12,
+//     name: 'Mediterranean',
+//     quantity: 2,
+//     unitPrice: 16,
+//     totalPrice: 32,
+//   },
+//   {
+//     pizzaId: 6,
+//     name: 'Vegetale',
+//     quantity: 1,
+//     unitPrice: 13,
+//     totalPrice: 13,
+//   },
+//   {
+//     pizzaId: 11,
+//     name: 'Spinach and Mushroom',
+//     quantity: 1,
+//     unitPrice: 15,
+//     totalPrice: 15,
+//   },
+// ];
 
 function Cart() {
   const cart = useSelector(getCart );
@@ -53,10 +54,7 @@ function Cart() {
 
       <div className="mt-6 space-x-2">
         {cart.length === 0 && 
-          <div className="flex flex-col items-center justify-center space-y-4">
-            <p className="text-md text-stone-700 ">Please add some pizzas to your cart</p>
-            <Button type="primary" to="/menu">Back to menu </Button>
-          </div> 
+          <EmptyCart/>
         }
         {cart.length > 0 && <Button type="primary" to="/order/new">Order pizzas</Button>}
         {cart.length > 0 && <Button type="secondary" onClick={handleClearCart}>Clear cart</Button>}
